@@ -37,7 +37,7 @@ const followingPeopleIdsOfUser = async (username) => {
    user.username = '${username}';
     `;
     const followingPeople = await db.all(getTheFollowingPeopleQuery);
-    const arrayOfIds = followingPeople.map(eachUser) => eachUser.following_user_id 
+    const arrayOfIds = followingPeople.map((eachUser) => eachUser.following_user_id 
     );
     return arrayOfIds;
 };
@@ -46,7 +46,7 @@ const followingPeopleIdsOfUser = async (username) => {
 function authenticateToken(request, response, next) {
   const token = request.header("Authorization");
   if (!token) {
-    return res.status(401).json({ message: "Invalid JWT Token" });
+    return res.status(401).json({"Invalid JWT Token" });
   }
 
   jwt.verify(token, "your_secret_key", (error, user) => {
